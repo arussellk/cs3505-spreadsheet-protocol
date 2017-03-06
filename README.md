@@ -15,13 +15,13 @@
 The server is in charge of holding the state of the spreadsheet. Client requests are sent to the server. The server validates the requests in the order that they are recieved. Once the changes are applied to the server's spreadsheet, they are sent to all of the clients. Clients do not perform any validation.  
 ___
 <p align="center">
-      <img src="ClientServerConn.png" width=250 height=250>
+      <img src="./ClientServerConn.png" width=250 height=250>
 </p>
 
 ___
 
 <p align="center">
-      <img src="ServerActivity.png")>
+      <img src="/ServerActivity.png">
 </p>
 
 ___
