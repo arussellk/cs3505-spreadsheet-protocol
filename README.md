@@ -56,7 +56,10 @@ Invalid commands sent between the server and the client are ignored.
 
 # <a name="mo"></a>Messages Overview
 
-All messages are sent as strings. Messages are delimited by spaces. Each message ends with a newline character (`\n`). All messages follow this generic format: 
+All messages are sent as strings of ASCII characters over TCP on port 12000.
+Messages are delimited by spaces.
+Each message ends with a newline character (`\n`).
+All messages follow this generic format:
 
 ```
 <action> [<parameters>]
@@ -141,6 +144,12 @@ Rolls back the most recent change on the document made by any client editing tha
     ```
 
 # <a name="pqr"></a>Protocol Quick Reference
+
+## TCP Port
+
+```
+12000
+```
 
 ## Summary of Server to Client Messages
 
