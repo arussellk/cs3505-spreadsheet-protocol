@@ -12,13 +12,31 @@
 * [Protocol Quick Reference](#pqr)
 
 # <a name="po"></a> Protocol Overview
-The server is in charge of holding the state of the spreadsheet. Client requests are sent to the server. The server validates the requests in the order that they are recieved. Once the changes are applied to the server's spreadsheet, they are sent to all of the clients. Clients do not perform any validation.  
-___
+
+STTP follows the philosophy that "the server is the man".
+That is, the server holds the state of the spreadsheet and clients can only request to make changes.
+Clients are passive and only display what the server instructs.
+
+Client requests are sent to the server. 
+The server validates the requests in the order that they are received. 
+Once the changes are applied to the server's spreadsheet, they are sent to all of the clients. 
+Clients do NOT perform any validation.
+Communication between the server and client is summarized below:
+
+____
+
+This diagram illustrates the initial connection between the server and client. 
+During the last stage of the connection (Display/Deliver Spreadsheet), the server temporarily stops evaluating requests from other clients to ensure that the incoming client recieves the complete state of the spreadsheet. 
+Once the connection is complete, the server continues evaluating the incoming requests.
+
 <p align="center">
       <img src="./ClientServerConn.png" width=500 height=500>
 </p>
 
 ___
+
+This diagram summarizes the server's process of receiving and evaluating incoming requests from the client. 
+All requests are processed in the order that they are received. 
 
 <p align="center">
       <img src="./ServerActivity.png">
@@ -27,21 +45,14 @@ ___
 ___
 
 
-STTP follows the philosophy that "the server is the man".
-That is, the server holds the state of the spreadsheet and clients can only request to make changes.
-Clients are passive and only display what the server instructs.
-
-Client change requests are sent to the server.
-The server validates the requests in the order that they are recieved.
-Once the changes are applied to the server's spreadsheet, they are sent to all of the clients.
-Clients do not perform any validation.
-
 > Note:  
 If a client requests a change that would result in an error (e.g. circular dependencies, formula errors)
 the change is not applied and an error message is sent to that client only.
 
 > Note:  
 Invalid commands sent between the server and the client are ignored.
+
+
 
 # <a name="mo"></a>Messages Overview
 
