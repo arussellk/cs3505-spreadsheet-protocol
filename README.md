@@ -2,6 +2,8 @@
 
 ### Jacob Badger, Gabriel Kerr, Daniel Merrell, Russell Kennington
 ### 4 March 2017
+### Link to online version: https://github.com/arussellk/cs3505-spreadsheet-protocol/blob/master/README.md 
+
 
 # Contents
 
